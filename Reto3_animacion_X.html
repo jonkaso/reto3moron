@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animación</title>
+    <style>
+        body{
+            text-align: center;
+            padding: 100px;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" height="500" width="1000" style="border: 1px black solid;"></canvas>
+    
+
+    <script type="module">
+        const canvas = document.querySelector("canvas");
+        const ctx = canvas.getContext("2d");
+
+        let rotacionCinta = 0;
+        let desplazamientoCarroceria = 0;
+        let rotacionRueda1 = 0;
+        let rotacionRueda2 = 0;
+        let desplazamientoRueda1 = 0;
+        let desplazamientoRueda2 = 0;
+
+        let posicionLinea = -20; // empieza fuera
+        let posicionLinea2 = -50;
+        let posicionLinea3 = -80;
+
+
+        const puntoRuedas = 0;
+        const puntoCarroceria = 300;
+        const puntoCristales = 600;
+
+        const llantas = 8; // Número de radios
+
+        // No conseguía darle a las ruedas el movimiento de rotación y de translación
+        // Por eso me ayude de ChatGPT porque me giraba todo el dibujo
+        function dibujarRueda1(x) {
+
+        if (x < puntoRuedas) return;
+
+        ctx.save(); // Guarda el estado original
+        ctx.translate(x + 50, 375); // Centro de la llanta
+        ctx.rotate(rotacionRueda1);
+
+        ctx.beginPath();
+        ctx.fillStyle = "black";
+        ctx.arc(0, 0, 25, 0, 2*Math.PI);
+        ctx.fill();
+
+        
+        // Para poder hacer las llantas no conseguia hacer mediante bucle
+        // porque no se me quedaba en el centro de las ruedas con el comando translate
+        // he centrado el punto de origen al centro de la rueda 
+        
+        for (let i = 0; i < llantas; i++) {
+
+            ctx.beginPath();
+            ctx.lineWidth = 6;
+            ctx.strokeStyle = "silver";
+            ctx.moveTo(0, 0); // Desde el centro (0,0)
+            // Usamos la rotación del contexto en lugar de calcular x, y con sen/cos
+            ctx.lineTo(25, 0); // Dibuja una línea horizontal (que luego es rotada)
+            ctx.stroke();
+            // Rota el contexto para el siguiente radio. Usamos 2*PI para un círculo completo.
+            ctx.rotate((Math.PI * 2) / llantas);
+                
+        }
+
+        ctx.restore(); // Restaura el estado original
+
+        }
+
+        
+        function dibujarRueda2(x) {
+
+        if (x < puntoRuedas) return;
+
+        ctx.save();
+        ctx.translate(x + 250, 375);
+        ctx.rotate(rotacionRueda2);
+
+        ctx.beginPath();
+        ctx.fillStyle = "black";
+        ctx.arc(0, 0, 25, 0, 2*Math.PI)
+        ctx.fill();
+
+        for (let i = 0; i < llantas; i++) {
+
+            ctx.beginPath();
+            ctx.lineWidth = 6;
+            ctx.strokeStyle = "silver";
+            ctx.moveTo(0, 0); // Desde el centro (0,0)
+            // Usamos la rotación del contexto en lugar de calcular x, y con sen/cos
+            ctx.lineTo(25, 0); // Dibuja una línea horizontal (que luego es rotada)
+            ctx.stroke();
+            // Rota el contexto para el siguiente radio. Usamos 2*PI para un círculo completo.
+            ctx.rotate((Math.PI * 2) / llantas);
+            
+               
+        }
+
+        ctx.restore(); // Restaura el estado original
+
+        }
+
+
+        function dibujarCinta() {
+
+        
+        const cantidad_circulos = 50;
+        const y = 410;
+        const radio = 10;
+
+        //Bucle para hacer la cinta transportadora 
+        //He tenido que consultar como se escribe el bucle en JavaScript
+        
+        for (let i = 0; i < cantidad_circulos; i++) {
+
+            let x = 10 + (i * 20)
+            
+
+            // Iniciar un nuevo dibujo.
+            ctx.beginPath();
+            // Dibujar el arco (círculo completo: de 0 a 2*PI radianes)
+            ctx.arc(x, y, radio, 0, Math.PI * 2);
+            // Establecer el color de relleno.
+            ctx.fillStyle = "grey";
+            // Rellenar el círculo.
+            ctx.fill();
+            // Cerrar el dibujo.
+            ctx.closePath();
+
+            // Animación de las lineas o radios de los rodillos para simular el movimiento de la cinta
+            ctx.save();
+            ctx.translate(x, y);
+            ctx.rotate(rotacionCinta);
+
+            //Crear los radios o lineas de los rodillos. 
+            // Línea horizontal
+            ctx.beginPath();
+            ctx.moveTo(-radio, 0);
+            ctx.lineTo(radio, 0);
+            ctx.strokeStyle = "black";
+            ctx.lineWidth = 2;
+            ctx.stroke();
+
+            // Línea vertical
+            ctx.beginPath();
+            ctx.moveTo(0, -radio);
+            ctx.lineTo(0, radio);
+            ctx.fillStyle = "black"
+            ctx.lineWidth = 2;
+            ctx.stroke();
+
+            ctx.restore(); // Restaura el estado original
+
+        }
+
+        }
+
+        function dibujarCarroceria(x) {
+
+        if (x < puntoCarroceria) return;
+
+        ctx.save();
+        ctx.translate(x , 0);
+
+        ctx.beginPath(); 
+        ctx.fillStyle = "orange";
+        ctx.fillRect(0, 200, 300, 150);
+
+        // Para simular el morro y el culo del coche
+        
+        ctx.beginPath(); 
+        ctx.fillStyle = "white";
+        ctx.fillRect(0, 200, 75, 75);
+        
+        
+        ctx.beginPath(); 
+        ctx.fillStyle = "white";
+        ctx.fillRect(225, 200, 75, 75);
+
+        // Para simular el agujero de las ventanillas
+
+        ctx.beginPath(); 
+        ctx.fillStyle = "white";
+        ctx.fillRect(90, 210, 45, 65);
+
+
+        ctx.beginPath(); 
+        ctx.fillStyle = "white";
+        ctx.fillRect(165, 210, 45, 65);
+
+        ctx.restore(); // Restaura el estado original
+
+        }
+
+        function dibujarCristales(x){
+
+        if (x < puntoCristales) return;
+
+        ctx.save();
+        ctx.translate(x, 0);
+
+        // Las lunas delantera y trasera
+        ctx.beginPath();
+        ctx.moveTo(225, 200); // Punto 1 La parte de arriba de la ventana
+        ctx.lineTo(250, 275); // Punto 2 abajo derecha
+        ctx.lineTo(225, 275); // Punto 3 abajo izquierda
+        ctx.closePath();      // Cierra el triángulo
+        ctx.fillStyle = "skyblue";
+        ctx.fill();
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.moveTo(75, 200); // Punto 1 La parte de arriba de la ventana
+        ctx.lineTo(50, 275); // Punto 2 abajo derecha
+        ctx.lineTo(75, 275); // Punto 3 abajo izquierda
+        ctx.closePath();      // Cierra el triángulo
+        ctx.fillStyle = "skyblue";
+        ctx.fill();
+        ctx.stroke();
+
+
+        // Para simular las ventanillas
+
+        ctx.beginPath(); 
+        ctx.fillStyle = "skyblue";
+        ctx.fillRect(90, 225, 45, 65);
+
+
+        ctx.beginPath(); 
+        ctx.fillStyle = "skyblue";
+        ctx.fillRect(165, 225, 45, 65);
+
+        ctx.restore(); // Restaura el estado original
+
+        }
+        
+        // Me he vuelto loco para conseguir que haga lo que quiero y he necesitado
+        // ayuda de ChatGPT.
+        
+
+        function velocidad(x) {
+        if (x >= puntoCarroceria && x < puntoCristales) {
+            return 1.25; // La velocidad entre el montaje de carrocería y el montaje de los cristales dando a entender que este punto del montaje es el cuello de botella.
+        }
+        if (x >= puntoCristales) {
+            return 2.5; // Velocidad una vez el coche está terminado
+        }
+        else return 1.75; // La velocidad de las ruedas hasta montaje de carrocería
+        }
+
+
+        function animar() {
+
+        // Ajuste de velocidad según coche y etapa de montaje
+        let v1 = velocidad(posicionLinea);
+        posicionLinea += v1;
+
+    
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        // Dibuja cinta (Rodillos y sus lineas horizontales y verticales)
+        dibujarCinta();
+
+
+        //Dibuja Coche1
+        dibujarRueda1(posicionLinea);
+        dibujarRueda2(posicionLinea);
+        dibujarCarroceria(posicionLinea);
+        dibujarCristales(posicionLinea);
+        
+
+        // Dibuja el 2 coche cuando el 1 coche llega a carrocería y le aplica la velocidad según en el punto de la linea en el que está.
+        if (posicionLinea >= puntoCarroceria) {
+            let v2 = velocidad(posicionLinea2);
+            posicionLinea2 += v2;
+
+            dibujarRueda1(posicionLinea2);
+            dibujarRueda2(posicionLinea2);
+            dibujarCarroceria(posicionLinea2);
+            dibujarCristales(posicionLinea2);
+        }
+
+        // Dibuja el 3 coche cuando el 2 coche llega a carrocería y le aplica la velocidad según en el punto de la linea en el que está.
+        if (posicionLinea2 >= puntoCarroceria) {
+            let v3 = velocidad(posicionLinea3);
+            posicionLinea3 += v3;
+
+            dibujarRueda1(posicionLinea3);
+            dibujarRueda2(posicionLinea3);
+            dibujarCarroceria(posicionLinea3);
+            dibujarCristales(posicionLinea3);
+        }
+        
+        // Rotación de los rodamientos y las ruedas
+        rotacionCinta += 0.1;
+        rotacionRueda1 += 0.05;
+        rotacionRueda2 += 0.05;
+                
+
+        // Cuando el 3 coche sale del canvas vuelve ha empezar la animación montando de nuevo los 3 coches
+        if (posicionLinea3 > canvas.width) {
+        posicionLinea  = -20;
+        posicionLinea2 = -50;
+        posicionLinea3 = -80;
+        }
+        
+        requestAnimationFrame(animar);
+
+        }
+
+        animar();
+        
+
+
+        
+
+
+
+    </script>
+</body>
+</html>
