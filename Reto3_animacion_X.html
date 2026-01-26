@@ -163,7 +163,7 @@
 
         }
 
-        function dibujarCarroceria(x) {
+        function dibujarCarroceria(x, color_carroceria) {
 
         if (x < puntoCarroceria) return;
 
@@ -171,7 +171,7 @@
         ctx.translate(x , 0);
 
         ctx.beginPath(); 
-        ctx.fillStyle = "orange";
+        ctx.fillStyle = color_carroceria; // Antes era de un solo color ahora modifiacremos el color de los tres coches usando esta variable
         ctx.fillRect(0, 200, 300, 150);
 
         // Para simular el morro y el culo del coche
@@ -273,7 +273,7 @@
         //Dibuja Coche1
         dibujarRueda1(posicionLinea);
         dibujarRueda2(posicionLinea);
-        dibujarCarroceria(posicionLinea);
+        dibujarCarroceria(posicionLinea,"orange");
         dibujarCristales(posicionLinea);
         
 
@@ -284,7 +284,7 @@
 
             dibujarRueda1(posicionLinea2);
             dibujarRueda2(posicionLinea2);
-            dibujarCarroceria(posicionLinea2);
+            dibujarCarroceria(posicionLinea2,"blue");
             dibujarCristales(posicionLinea2);
         }
 
@@ -295,7 +295,7 @@
 
             dibujarRueda1(posicionLinea3);
             dibujarRueda2(posicionLinea3);
-            dibujarCarroceria(posicionLinea3);
+            dibujarCarroceria(posicionLinea3,"green");
             dibujarCristales(posicionLinea3);
         }
         
