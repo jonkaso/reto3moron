@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/jpeg" href="logo.jpg">
+    <title>Departamento de comunicación internacional</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            scroll-behavior: smooth;
+        }
+
+        .menu {
+            background-color: #0066cc;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+
+        }
+
+        .menu ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+
+        .menu ul li {
+            margin: 0 15px;
+        }
+
+        .menu a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 15px;
+            display: block;
+            border-radius: 3px;
+            transition: background-color 0.3s;
+        }
+
+        .logo {
+            margin-left: 200px;
+
+        }
+
+        .img {
+            padding: 50px 150px;
+            margin-left: 350px;
+            margin-top: 50px;
+        }
+
+        .container {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+            /* Añade un margen superior para empujar el contenedor por debajo del menú fijo */
+            margin-top: 80px;
+            /* Ajusta este valor si tu menú es más alto o más bajo */
+            margin-left: auto;
+            /* Centra el contenedor horizontalmente si no ocupa todo el ancho */
+            margin-right: auto;
+        }
+
+        /* Aplica el margen a los destinos del enlace */
+        #formulario_contacto,
+        #complain_letter{
+            scroll-margin-top: 75px;
+            /* Esto hace el "salto" con margen */
+        }
+        #FAQ{
+            scroll-margin-top: 120px;
+        }
+
+        .label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        form input,
+        form textarea {
+            width: 100%;
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            /* Asegura que el padding no aumente el ancho */
+        }
+
+        .boton_formulario {
+            background-color: #007BFF;
+            color: white;
+            padding: 0.75rem 1rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1rem;
+        }
+
+        #cambio_idioma {
+            float: right;
+            margin-bottom: 1rem;
+            background-color: #6c757d;
+            color: white;
+            padding: 0.5rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .complain_letter {
+            padding: 2rem;
+            border-radius: 3px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 1000px;
+            margin-top: 80px;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: white;
+        }
+
+        .input {
+            width: 25%;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="menu">
+        <ul>
+            <li><a href="#formulario_contacto">Formulario de consultas</a></li>
+            <li><a href="#complain_letter">Plantilla de reclamaciones</a></li>
+            <li><a href="#FAQ">FAQ</a></li>
+            <a href=RETO3_version_x.html><img src="Logo.jpg" alt="imagen del logo de nustra empresa" width="50"
+                    height="50" class="logo"></a>
+        </ul>
+    </nav>
+    <div><img src="Logo.jpg" alt="imagen del logo de nustra empresa" width="750" height="550" class="img"></div>
+    <div class="container" id="formulario_contacto">
+        <button id="cambio_idioma">Switch to English</button>
+        <h1 clave_idioma="titulo_formulario">Formulario de Consultas</h1>
+        <p clave_idioma="subtitulo_formulario">Por favor, complete el siguiente formulario para cualquier problema o
+            duda.
+        </p>
+
+        <form>
+            <label for="nombre" clave_idioma="label_nombre" class="label">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required clave_idioma="ph_nombre">
+
+            <label for="correo" clave_idioma="label_correo" class="label">Correo Electrónico:</label>
+            <input type="email" id="correo" name="correo" required clave_idioma="ph_correo">
+
+            <label for="problema" clave_idioma="label_problema" class="label">Problema/Duda:</label>
+            <textarea id="problema" name="problema" rows="4" required clave_idioma="ph_problema"></textarea>
+
+            <button type="submit" clave_idioma="submit_boton" class="boton_formulario">Enviar Consulta</button>
+        </form>
+    </div>
+    <div id="complain_letter" class="complain_letter">
+        <h1>Form complain letter</h1>
+        <form>
+            <div>
+                <label for="nombre">Name:</label>
+                <input type="text" id="nombre" name="nombre" required placeholder="name" class="input">
+            </div>
+            <div>
+                <label for="correo">Email:</label>
+                <input type="email" id="correo" name="correo" required placeholder="email" class="input">
+            </div>
+            <div>
+                <label for="telefono">Movil phone:</label>
+                <input type="tel" id="telefono" name="telefono" required placeholder="XXX XXX XXX" class="input">
+            </div>
+            <div>
+                <label for="company">Your Companies name:</label>
+                <input type="text" id="company" name="company" required placeholder="--------------------- .SL"
+                    class="input">
+            </div>
+            <div>
+                <label for="job">Your job position:</label>
+                <input type="text" id="job" name="job" required placeholder="job position" class="input">
+            </div>
+            <div>
+                <label for="problema" class="label">Issues:</label>
+                <textarea id="problema" name="problema" rows="4" required
+                    placeholder="What is your problem?"></textarea>
+            </div>
+            <div>
+                <label for="demands" class="label">Demands:</label>
+                <textarea id="demans" name="demands" rows="4" required placeholder="what are your demands?"></textarea>
+            </div>
+            <button type="submit" class="boton_formulario">Send complain_letter</button>
+        </form>
+        <div id="FAQ">
+            <div style="position: relative; width: 100%; height: 0; padding-top: 100.0000%;
+                padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
+                border-radius: 8px; will-change: transform;">
+                <iframe loading="lazy"
+                    style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
+                    src="https://www.canva.com/design/DAG_gZtMe-Q/Pm2y_9NcI3zKkiu5ppKrHg/view?embed"
+                    allowfullscreen="allowfullscreen" allow="fullscreen">
+                </iframe>
+            </div>
+            <div >
+                <a href="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAG_gZtMe-Q&#x2F;Pm2y_9NcI3zKkiu5ppKrHg&#x2F;view?utm_content=DAG_gZtMe-Q&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link"target="_blank" rel="noopener">FAQ</a>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        const traducir = {
+            es: {
+                titulo_formulario: "Formulario de Consultas",
+                subtitulo_formulario: "Por favor, complete el siguiente formulario para cualquier problema o duda.",
+                label_nombre: "Nombre:",
+                label_correo: "Correo Electrónico:",
+                label_problema: "Problema/Duda:",
+                submit_boton: "Enviar Consulta",
+                button_idioma: "Switch to English",
+                ph_nombre: "Su nombre",
+                ph_correo: "Su correo electrónico",
+                ph_problema: "Describa su problema o duda"
+            },
+            en: {
+                titulo_formulario: "Inquiry Form",
+                subtitulo_formulario: "Please fill out the following form for any issues or questions.",
+                label_nombre: "Name:",
+                label_correo: "Email:",
+                label_problema: "Issue/Question:",
+                submit_boton: "Submit Inquiry",
+                button_idioma: "Cambiar a Castellano",
+                ph_nombre: "Your name",
+                ph_correo: "Your email address",
+                ph_problema: "Describe your issue or question"
+            }
+        };
+
+        const cambio_idioma = document.getElementById('cambio_idioma');
+        let idioma_actual = 'es';
+        // No sabia bien como hacer esta función y le pregunte a la IA para ayudarme
+        function updateContent() {
+            const elements = document.querySelectorAll('[clave_idioma]');
+            elements.forEach(element => {
+                const key = element.getAttribute('clave_idioma');
+                const translation = traducir[idioma_actual][key]; // Usa 'traducir'
+
+                if (translation) {
+                    // Lógica para diferenciar PLACEHOLDERS de TEXTOS NORMALES
+                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                        element.placeholder = translation;
+                    } else {
+                        element.textContent = translation;
+                    }
+                }
+            });
+
+            // Usa 'traducir' y la clave correcta 'button_idioma'
+            cambio_idioma.textContent = traducir[idioma_actual].button_idioma;
+            document.documentElement.lang = idioma_actual;
+        }
+
+        cambio_idioma.addEventListener('click', () => {
+            idioma_actual = idioma_actual === 'es' ? 'en' : 'es';
+            updateContent();
+        });
+
+        // Inicia el contenido al cargar la página
+        updateContent();
+
+    </script>
+
+
+</html>
+
+
+</body>
+
+</html>
