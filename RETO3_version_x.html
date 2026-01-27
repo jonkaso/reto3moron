@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/jpeg" href="logo.jpg">
+    <title>Propuesta final Moron</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
+        
+        .menu {
+            background-color: #0066cc;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .logo{
+            margin-left: 200px;
+
+        }
+        
+        .menu ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .menu li {
+            margin: 0 15px;
+        }
+        
+        .menu a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 15px;
+            display: block;
+            border-radius: 3px;
+            transition: background-color 0.3s;
+        }
+        
+        .menu a:hover {
+            background-color: #0052a3;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 40px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        section {
+            padding: 40px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        section:last-child {
+            border-bottom: none;
+        }
+        
+        h1 {
+            color: #333;
+            border-bottom: 3px solid #0066cc;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        
+        h2 {
+            color: #0066cc;
+            margin-bottom: 20px;
+        }
+        
+        h3 {
+            color: #555;
+            margin: 15px 0 10px 0;
+        }
+        
+        .intro {
+            background-color: #e8f4f8;
+            padding: 20px;
+            border-left: 4px solid #0066cc;
+            margin: 20px 0;
+        }
+        
+        .destacado {
+            background-color: #fff9e6;
+            padding: 15px;
+            border-left: 4px solid #ffcc00;
+            margin: 15px 0;
+        }
+        
+        .seccion-contenido {
+            margin: 20px 0;
+            padding: 20px;
+            background-color: #fafafa;
+            border-radius: 5px;
+        }
+        
+        ul {
+            line-height: 1.8;
+            margin-left: 20px;
+        }
+        
+        .integrante {
+            margin: 15px 0;
+            padding: 15px;
+            background-color: rgb(255, 255, 255);
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .bd {
+            margin-left: 20px;
+        }
+        
+        .problema {
+            background-color: #ffe6e6;
+            padding: 15px;
+            margin: 10px 0;
+            border-left: 4px solid #cc0000;
+        }
+        
+        .solucion {
+            background-color: #e6ffe6;
+            padding: 15px;
+            margin: 10px 0;
+            border-left: 4px solid #00cc00;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        table th, table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        table th {
+            background-color: #0066cc;
+            color: white;
+        }
+        
+        table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <nav class="menu">
+        <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#contexto">Contexto</a></li>
+            <li><a href="#problemas">Problemas</a></li>
+            <li><a href="#modulos">Módulos</a></li>
+            <li><a href="#ideas">Ideas</a></li>
+            <li><a href="#planificacion">Planificación</a></li>
+            <li><a href="#conclusion">Conclusión</a></li>
+            <img src="Logo.jpg" alt="imagen del logo de nustra empresa" width="50" height="50" class="logo">
+        </ul>
+    </nav>
+
+    <div class="container">
+        <section id="inicio">
+            <h1>Propuesta Final - Proyecto Rolls-Royce</h1>
+            
+            <div class="intro">
+                <p><strong>Grupo 6 - Mörön</strong></p>
+                <p>Esta es la propuesta final que hemos decidido entre todos los integrantes del grupo para ayudar a Rolls-Royce con su nuevo departamento.</p>
+            </div>
+
+            <div class="destacado">
+                <h3>Información del Grupo</h3>
+                <ul>
+                    <li><strong>Integrantes:</strong> [Xabier Iglesias - Peru Gainza - Ibon Etxegia - Jon Murugarren]</li>
+                    <li><strong>Fecha de presentación:</strong> [27/01/2026]</li>
+                    <li><strong>Ciclo de Grado Superior:</strong> [Desarrollo de Aplicaciones Multiplataforma]</li>
+                    <li><strong>Clase:</strong> [1DM3]</li>
+                    <li><strong>Grupo:</strong> [6 - Mörön]</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="contexto">
+            <h2>Contexto del Proyecto</h2>
+            <div class="seccion-contenido">
+                <p>Somos Kbyte SL, una empresa de software que surge en 1985 y hoy en día tiene un equipo de más de 2000 personas que operan en 10 países distintos. Ayudamos a diferentes compañías del ámbito privado y público a ampliar sus horizontes. <br>
+                    El trabajo de calidad y la confianza de nuestros clientes ha hecho que nuestra empresa crezca y mejore con los años. <br>
+                    Hemos sido contratados por la empresa Rolls-Royce ya que ha creado un departamento nuevo el cual se encarga de fabricar modelos de una gama menor y más comercial a lo que están acostumbrados y quieren nuestra ayuda para solventar ciertos problemas.</p>
+                
+                <h3>Sobre Rolls-Royce</h3>
+                <p>Rolls-Royce es conocida mundialmente por fabricar coches de lujo de alta gama. Sin embargo, con este nuevo departamento buscan entrar en un mercado más accesible sin perder su esencia de calidad y prestigio.</p>
+                
+                <h3>Nuestro Rol</h3>
+                <p>Como empresa de software, vamos a desarrollar soluciones tecnológicas que faciliten la gestión, producción y comercialización de esta nueva gama de vehículos.</p>
+            </div>
+        </section>
+
+        <section id="problemas">
+            <h2>Problemas Identificados</h2>
+            
+            <div class="problema">
+                <h3>Problema 1: Gestión de Inventario</h3>
+                <p>El nuevo departamento necesita un sistema para controlar las piezas y componentes de los modelos más comerciales.</p>
+            </div>
+            
+            <div class="problema">
+                <h3>Problema 2: Control de Producción</h3>
+                <p>Falta un sistema que permita seguir el estado de cada vehículo durante el proceso de fabricación.</p>
+            </div>
+            
+            <div class="problema">
+                <h3>Problema 3: Gestión de Clientes</h3>
+                <p>Necesitan una base de datos para gestionar los pedidos y preferencias de los clientes de la nueva gama.</p>
+            </div>
+            <div class="problema">
+                <h3>Problema 4: Posibles dudas y quejas</h3>
+                <p>Necesitan la simulación o prototipo de un formulario para consultas, una plantilla de reclamaciones y un FAQ </p>
+            </div>
+        </section>
+
+        <section id="modulos">
+            <h2>Módulos del Proyecto</h2>
+            <div class="seccion-contenido">
+                <p>El proyecto lo hemos dividido en los siguientes apartados, que son los módulos que cursamos:</p>
+                
+                <div class="solucion">
+                    <h3>Módulo 1: Bases de Datos</h3>
+                    <p>Diseñaremos una base de datos completa para gestionar toda la información de vehículos, clientes, pedidos y piezas.</p>
+                </div>
+                
+                <div class="solucion">
+                    <h3>Módulo 2: Programación</h3>
+                    <p>Desarrollaremos las aplicaciones y funcionalidades necesarias para que el sistema funcione correctamente.</p>
+                </div>
+                
+                <div class="solucion">
+                    <h3>Módulo 3: Sistemas Informáticos</h3>
+                    <p>Configuraremos la infraestructura de red y servidores necesaria para el funcionamiento del sistema.</p>
+                </div>
+                
+                <div class="solucion">
+                    <h3>Módulo 4: Lenguaje de Marcas</h3>
+                    <p>Crearemos interfaces web intuitivas para que los empleados puedan usar el sistema fácilmente.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="ideas">
+            <h2>Soluciones</h2>
+            <div class="seccion-contenido">
+                <p>A continuación aparecen las soluciones de cada problema:</p>
+                
+                <div class="integrante">
+                    <h3>Solución : [Problema 1]</h3>
+                    <p><strong>Propuesta:</strong> [Hemos desarrollado un programa en el que se puede consultar el inventario, partiendo de la base de datos. También se pueden añadir nuevos componentes o marrcarlos como piezas defectuosas, e incluso Eliminar las piezas de la base de datos.]</p>
+                    <a href="https://colab.research.google.com/drive/15LGDUUCi3INT6lOYpUamtK4ob0cQrgYb?usp=drive_link" target="_blank">[Programa de Gestión de inventario]</a>
+                </div>
+                
+                <div class="integrante">
+                    <h3>Solución : [Problema 2]</h3>
+                    <p><strong>Propuesta:</strong> [<a href="Reto3_animacion_final.html" target="_blank">[Animación]</a>]</p>
+                    
+                </div>
+                
+                <div class="integrante">
+                    <h3>Solución : [Problema 3]</h3>
+                    <p><strong>Propuesta:</strong> <img src="Captura de pantalla 2026-01-26 133315.png" alt="imagen de base de datos" width="750" height="500" class="bd"> </p>
+                    
+                </div>
+                
+                <div class="integrante">
+                    <h3>Solución : [Problema 4]</h3>
+                    <p><strong>Propuesta:</strong> [Acceso a una pagina para consultas]</p><br>
+                    <a href="Departamento_com_int.html"><button>Departamento de comunicacón internacional</button></a>
+                </div>
+            </div>
+        </section>
+
+        <section id="planificacion">
+            <h2>Planificación y Reparto de Tareas</h2>
+            <div class="seccion-contenido">
+                <h3>Cronograma del Proyecto</h3>
+                <table>
+                    <tr>
+                        <th>Fase</th>
+                        <th>Descripción</th>
+                        <th>Duración</th>
+                        <th>Responsable</th>
+                    </tr>
+                    <tr>
+                        <td>Fase 9</td>
+                        <td>Análisis de requisitos</td>
+                        <td>2 días</td>
+                        <td>[Peru, Ibon, Jon, Xabier]</td>
+                    </tr>
+                    <tr>
+                        <td>Fase 9</td>
+                        <td>Diseño de la base de datos</td>
+                        <td>1 semana</td>
+                        <td>[Peru, Ibon, Jon, Xabier]</td>
+                    </tr>
+                    <tr>
+                        <td>Fase 9</td>
+                        <td>Desarrollo de Página Web</td>
+                        <td>3 semanas</td>
+                        <td>[Peru, Ibon, Jon, Xabier]</td>
+                    </tr>
+                    <tr>
+                        <td>Fase 9</td>
+                        <td>Desarrollo del software</td>
+                        <td>3 semanas</td>
+                        <td>[Peru, Ibon, Jon, Xabier]</td>
+                    </tr>
+                    <tr>
+                        <td>Fase 9</td>
+                        <td>Memoria Técnica</td>
+                        <td>3 semanas</td>
+                        <td>[Peru, Ibon, Jon, Xabier]</td>
+                    </tr>
+                    <tr>
+                        <td>Fase 9</td>
+                        <td>Pruebas y correcciones</td>
+                        <td>2 días</td>
+                        <td>[Peru, Ibon, Jon, Xabier]</td>
+                    </tr>
+                    <tr>
+                        <td>Fase 9</td>
+                        <td>Presentación final</td>
+                        <td>1 día</td>
+                        <td>[Peru, Ibon, Jon, Xabier]</td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+
+        <section id="conclusion">
+            <h2>Conclusión</h2>
+            <div class="seccion-contenido">
+                <p>Con esta propuesta esperamos solucionar los problemas que presenta Rolls-Royce en su nuevo departamento y ayudarles a mejorar su gama comercial.</p>
+                
+                <div class="destacado">
+                    <h3>Beneficios Esperados</h3>
+                    <ul>
+                        <li>Mayor control sobre el inventario</li>
+                        <li>Reducción de errores en el proceso de fabricación, con la animación</li>
+                        <li>Establecer un mecanismo de comunicación eficiente, con el formulario y la plantilla de reclamaciones</li>
+                        <li>Sistema escalable para futuro crecimiento</li>
+                    </ul>
+                </div>
+                
+                <p><strong>Estamos comprometidos en entregar un proyecto de calidad que cumpla con todas las expectativas de Rolls-Royce.</strong></p><br>
+                <p>El trabajo ha sido duro, teniendo en cuenta las bajas sufridas a lo largo de la fase 9. <br>
+                Ha habido multiples problemas pero hemos sido capaces de sacarlos adelante apoyandonos los unos a los otros, <br>
+                y si hacia falta preguntando a compañeros de otros grupos ademas de la ayuda de las IAs. </p>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
