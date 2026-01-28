@@ -27,8 +27,8 @@
         let desplazamientoRueda2 = 0;
 
         let posicionLinea = -20; // empieza fuera
-        let posicionLinea2 = -50;
-        let posicionLinea3 = -80;
+        let posicionLinea2 = -50; // un desfase entre los coches fuera del canvas
+        let posicionLinea3 = -80; // un desfase entre los coches fuera del canvas
 
 
         const puntoRuedas = 0;
@@ -39,6 +39,8 @@
 
         // No conseguía darle a las ruedas el movimiento de rotación y de translación
         // Por eso me ayude de ChatGPT porque me giraba todo el dibujo
+        // Esta funcion sirve para dibujar el primer par de ruedas
+        // La variable x sirve para despues definir desde donde se va a dibujar. A partir de que el valor de x supera el valor predeterminado (puntoRuedas) 
         function dibujarRueda1(x) {
 
         if (x < puntoRuedas) return;
@@ -56,7 +58,7 @@
         // Para poder hacer las llantas no conseguia hacer mediante bucle
         // porque no se me quedaba en el centro de las ruedas con el comando translate
         // he centrado el punto de origen al centro de la rueda 
-        
+        // este bucle sirve para dibujar las llantas
         for (let i = 0; i < llantas; i++) {
 
             ctx.beginPath();
@@ -75,7 +77,8 @@
 
         }
 
-        
+        // Esta funcion sirve para dibujar el segundo par de ruedas
+        // La variable x sirve para definir desde donde se va a dibujar. A partir de que el valor de x supera el valor predeterminado (puntoRuedas) 
         function dibujarRueda2(x) {
 
         if (x < puntoRuedas) return;
@@ -89,6 +92,7 @@
         ctx.arc(0, 0, 25, 0, 2*Math.PI)
         ctx.fill();
 
+        // este bucle sirve para dibujar las llantas
         for (let i = 0; i < llantas; i++) {
 
             ctx.beginPath();
@@ -99,8 +103,7 @@
             ctx.lineTo(25, 0); // Dibuja una línea horizontal (que luego es rotada)
             ctx.stroke();
             // Rota el contexto para el siguiente radio. Usamos 2*PI para un círculo completo.
-            ctx.rotate((Math.PI * 2) / llantas);
-            
+            ctx.rotate((Math.PI * 2) / llantas);    
                
         }
 
@@ -108,7 +111,7 @@
 
         }
 
-
+        // Dibuja los rodillos de la cinta transportadora y sus ejes
         function dibujarCinta() {
 
         
@@ -162,36 +165,37 @@
         }
 
         }
-
-        function dibujarCarroceria(x, color_carroceria) {
+        // Esta funcion te dibuja la carroceria de color naranja
+        //La variable x sirve para definir desde donde se va a dibujar. A partir de que el valor de x supera el valor predeterminado (puntoCarroceria) 
+        function dibujarCarroceria(x) {
 
         if (x < puntoCarroceria) return;
 
         ctx.save();
         ctx.translate(x , 0);
-
+        // Dibujar un rectangulo de color naranja
         ctx.beginPath(); 
-        ctx.fillStyle = color_carroceria; // Antes era de un solo color ahora modifiacremos el color de los tres coches usando esta variable
+        ctx.fillStyle = "orange"; 
         ctx.fillRect(0, 200, 300, 150);
 
         // Para simular el morro y el culo del coche
-        
+        // Para simular el morro trasero (izquierda)
         ctx.beginPath(); 
         ctx.fillStyle = "white";
         ctx.fillRect(0, 200, 75, 75);
         
-        
+        // Para simular el morro delantero (derecho)
         ctx.beginPath(); 
         ctx.fillStyle = "white";
         ctx.fillRect(225, 200, 75, 75);
 
         // Para simular el agujero de las ventanillas
-
+        // Para simular el agujero de la ventanilla trasera (izquierda)
         ctx.beginPath(); 
         ctx.fillStyle = "white";
         ctx.fillRect(90, 210, 45, 65);
 
-
+        // Para simular el agujero de la ventanilla delantera (derecha)
         ctx.beginPath(); 
         ctx.fillStyle = "white";
         ctx.fillRect(165, 210, 45, 65);
@@ -200,6 +204,8 @@
 
         }
 
+        // Dibuja los cristales para que quede claro las ventanillas las montamos medio abiertas
+        //La variable x sirve para definir desde donde se va a dibujar. A partir de que el valor de x supera el valor predeterminado (puntoCristales)
         function dibujarCristales(x){
 
         if (x < puntoCristales) return;
@@ -228,12 +234,12 @@
 
 
         // Para simular las ventanillas
-
+        // Ventanillas traseras (izquierda)
         ctx.beginPath(); 
         ctx.fillStyle = "skyblue";
         ctx.fillRect(90, 225, 45, 65);
 
-
+        // Ventanillas delanteras (derecha)
         ctx.beginPath(); 
         ctx.fillStyle = "skyblue";
         ctx.fillRect(165, 225, 45, 65);
@@ -245,7 +251,8 @@
         // Me he vuelto loco para conseguir que haga lo que quiero y he necesitado
         // ayuda de ChatGPT.
         
-
+        // Nos sirve para regular el ritmo de avance segun las 3 fases del montaje
+        // la variable x nos sirve para definir la velocidad entre los tramos clave  
         function velocidad(x) {
         if (x >= puntoCarroceria && x < puntoCristales) {
             return 1.25; // La velocidad entre el montaje de carrocería y el montaje de los cristales dando a entender que este punto del montaje es el cuello de botella.
@@ -256,7 +263,7 @@
         else return 1.75; // La velocidad de las ruedas hasta montaje de carrocería
         }
 
-
+        // Generar animacion
         function animar() {
 
         // Ajuste de velocidad según coche y etapa de montaje
@@ -311,11 +318,11 @@
         posicionLinea2 = -50;
         posicionLinea3 = -80;
         }
-        
+        //Generar un bucle para que cuando termine vuelva a empezar
         requestAnimationFrame(animar);
 
         }
-
+        // Llama la funcion para empezar la animacion
         animar();
         
 

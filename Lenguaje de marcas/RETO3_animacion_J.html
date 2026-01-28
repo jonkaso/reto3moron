@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fábrica Simple</title>
+    <style>
+        body {
+            background: lightblue;
+            text-align: center;
+            font-family: Arial;
+        }
+
+        h1 {
+            margin-top: 50px;
+        }
+
+        .fabrica {
+            width: 400px;
+            height: 200px;
+            background: gray;
+            margin: 50px auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .coche {
+            width: 60px;
+            height: 30px;
+            background: red;
+            position: absolute;
+            bottom: 40px;
+            animation: mover 3s infinite, cambiarColor 3s infinite;
+        }
+
+        .rueda {
+            width: 15px;
+            height: 15px;
+            background: black;
+            border-radius: 50%;
+            position: absolute;
+            bottom: -7px;
+        }
+
+        .rueda1 {
+            left: 8px;
+        }
+
+        .rueda2 {
+            right: 8px;
+        }
+
+        @keyframes mover {
+            from { left: 0; }
+            to { left: 340px; }
+        }
+
+        @keyframes cambiarColor {
+            0% { background: red; }
+            100% { background: blue; }
+        }
+    </style>
+</head>
+<body>
+    <h1>Fábrica de Coches</h1>
+    <div class="fabrica">
+        <div class="coche">
+            <div class="rueda rueda1"></div>
+            <div class="rueda rueda2"></div>
+        </div>
+    </div>
+</body>
+</html>

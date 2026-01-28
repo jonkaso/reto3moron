@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Montaje desde cinta</title>
+
+<style>
+body {
+    margin: 0;
+    background: #e0f2f1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* ESCENA */
+.factory {
+    position: relative;
+    width: 700px;
+    height: 350px;
+    border: 4px solid #333;
+    background: #c8e6c9;
+    overflow: hidden;
+}
+
+/* CINTA */
+.conveyor {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    background: repeating-linear-gradient(
+        45deg,
+        #424242,
+        #424242 10px,
+        #616161 10px,
+        #616161 20px
+    );
+}
+
+/* PIEZAS */
+.part {
+    position: absolute;
+    bottom: 10px;
+    animation-fill-mode: forwards;
+}
+
+/* CHASIS */
+.body {
+    width: 220px;
+    height: 50px;
+    background: #1976d2;
+    left: -250px;
+    animation: bodyFall 4s ease-out forwards;
+}
+
+/* TECHO */
+.roof {
+    width: 120px;
+    height: 35px;
+    background: #0d47a1;
+    left: -150px;
+    animation: roofFall 4s ease-out forwards;
+    animation-delay: 4s;
+}
+
+/* RUEDAS */
+.wheel {
+    width: 40px;
+    height: 40px;
+    background: black;
+    border-radius: 50%;
+    left: -50px;
+}
+
+.wheel.left {
+    animation: wheelLeftFall 4s ease-out forwards;
+    animation-delay: 8s;
+}
+
+.wheel.right {
+    animation: wheelRightFall 4s ease-out forwards;
+    animation-delay: 8s;
+}
+
+/* ANIMACIONES */
+
+/* Chasis */
+@keyframes bodyFall {
+    0%   { left: -250px; bottom: 10px; }
+    50%  { left: 240px; bottom: 10px; }
+    100% { left: 240px; bottom: 100px; }
+}
+
+/* Techo */
+@keyframes roofFall {
+    0%   { left: -150px; bottom: 10px; }
+    50%  { left: 290px; bottom: 10px; }
+    100% { left: 290px; bottom: 150px; }
+}
+
+/* Ruedas */
+@keyframes wheelLeftFall {
+    0%   { left: -50px; bottom: 10px; }
+    50%  { left: 260px; bottom: 10px; }
+    100% { left: 260px; bottom: 60px; }
+}
+
+@keyframes wheelRightFall {
+    0%   { left: -50px; bottom: 10px; }
+    50%  { left: 400px; bottom: 10px; }
+    100% { left: 400px; bottom: 60px; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="factory">
+
+    <!-- PIEZAS QUE CAEN DE LA CINTA -->
+    <div class="part body"></div>
+    <div class="part roof"></div>
+    <div class="part wheel left"></div>
+    <div class="part wheel right"></div>
+
+    <!-- CINTA -->
+    <div class="conveyor"></div>
+
+</div>
+
+</body>
+</html>
