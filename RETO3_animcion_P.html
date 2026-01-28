@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadena de Producción</title>
+
+<!--La animacion del coche y algunos @keyframes los he puesto con ayuda de Claude.ia-->
+
+    <style>
+
+        body {
+            background: #e0e0e0;
+            font-family: Arial;
+            padding: 20px;
+        }
+        
+        h2 {
+            text-align: center;
+        }
+        
+        .linea {
+            background: #999;
+            height: 80px;
+            margin: 50px auto;
+            width: 800px;
+            position: relative;
+        }
+        
+        .coche {
+            background: gray;
+            width: 60px;
+            height: 30px;
+            position: absolute;
+            top: 25px;
+            border-radius: 3px;
+            animation: mover 6s infinite, pintar 6s infinite;
+        }
+        
+        @keyframes mover {
+            from { left: 0; }
+            to { left: 740px; }
+        }
+        
+        @keyframes pintar {
+            0% { background: gray; }
+            70% { background: gray; }
+            80% { background: red; }
+            100% { background: red; }
+        }
+        
+        .rueda {
+            background: black;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            position: absolute;
+            bottom: -6px;
+            animation: aparecer 6s infinite;
+        }
+        
+        @keyframes aparecer {
+            0% { opacity: 0; }
+            30% { opacity: 0; }
+            40% { opacity: 1; }
+            100% { opacity: 1; }
+        }
+        
+        .r1 { left: 10px; }
+        .r2 { right: 10px; }
+        
+        .estacion {
+            background: #666;
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            top: -10px;
+        }
+        
+        .e1 { left: 150px; }
+        .e2 { left: 400px; }
+        .e3 { left: 650px; }
+        
+        .texto {
+            color: white;
+            font-size: 11px;
+            text-align: center;
+            padding-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Fabricación de Coches</h2>
+    
+    <div class="linea">
+        <div class="estacion e1">
+            <div class="texto">Chasis</div>
+        </div>
+        <div class="estacion e2">
+            <div class="texto">Ruedas</div>
+        </div>
+        <div class="estacion e3">
+            <div class="texto">Pintura</div>
+        </div>
+        
+        <div class="coche">
+            <div class="rueda r1"></div>
+            <div class="rueda r2"></div>
+        </div>
+    </div>
+</body>
+</html>
