@@ -2,6 +2,7 @@
 Repositorio para reto3 grupo Mörön
 
 El repositorio está organizado en 2 carpetas, una para el modulo de lenguaje de marcas y el otro para programación.
+Todo lo que esta fuera de las carpetas son versiones anteriores. Pasa lo mismo dentro de la carpeta Lenguaje de marcas, que RETO3.html es una version antigua.
 
 La carpeta de programacion contiene:
 Nuestro programa se llama Users.py en este caso y vamos a documentar y explicar nuestro código python. 
